@@ -1,0 +1,39 @@
+body{
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.todo{
+  text-align: center;
+  font-size: 1.5rem;
+  color: #555;
+  margin-bottom: 30px;
+}
+.list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 300px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Style pour chaque élément de la liste */
+.list li {
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+  font-size: 1.2rem;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+/* Changement de couleur au survol de chaque élément */
+.list li:hover {
+  background-color: #f4f4f4;
+}
