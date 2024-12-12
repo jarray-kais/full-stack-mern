@@ -16,6 +16,7 @@ const PersonCard = (props) => {
       <p>Hair color : {hairColor}</p>
 
       <button onClick={()=>setCountAge(countage +1)}> Birthday Button for {firstName} {lastName}</button>
+      <button onClick={()=>setCountAge(age)}> Birthday Button for {firstName} {lastName}</button>
     </>
   );
 };

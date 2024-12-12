@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom"
 import axios from 'axios'
 
 const Luke = () => {
-    const [data , setData] = useState(null)
+    const [data , setData] = useState([])
     const {param , id} = useParams(useParams)
     useEffect(()=>{
         axios.get(`https://swapi.dev/api/${param}/${id}`)
