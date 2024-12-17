@@ -1,4 +1,4 @@
-import tvShows from '../data.js';
+import tvShows from '../models/tv.model.js';
 
 const tvController = {
     getAlltvs : async(req, res)=>{
@@ -65,7 +65,8 @@ const tvController = {
             console.error(error);
             res.status(500).json({ message: "error  in  adding a  tv " });
         }
-    }
+    },
+
 
 }
 
