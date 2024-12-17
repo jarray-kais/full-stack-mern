@@ -50,6 +50,22 @@ const tvController = {
             res.status(500).json({ message: "Unable to update starring property" });
         }
     },
+    createTV : async(req , res) =>{
+        try {
+            const {tvShow , yearCreated , genre , starring} = req.body
+            const existv = tvShows.find(tv => tv.tvShow.toLowerCase() === tvShow.toLowerCase());
+            if(existv){
+                res.status(404).json({message:"TV show already exists"})
+            }
+            tvShows.push({tvShow, yearCreated, genre, starring});
+            res.status(201).json({message: "TV created successfully", tvShows });
+
+            
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ message: "error  in  adding a  tv " });
+        }
+    }
 
 }
 

@@ -5,6 +5,7 @@ const router = Router()
 
 router.route('/')
     .get(tvController.getAlltvs)
+    .post(tvController.createTV)
 
 router.route('/:id')
     .get(tvController.getByYear)
