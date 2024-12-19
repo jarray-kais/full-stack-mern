@@ -1,5 +1,7 @@
 import axios from "axios";
+import { useContext } from "react";
 import { useState } from "react";
+import { StoreContext } from "../StoreContext";
 
 const Createbook = () => {
   const [formData, setFormData] = useState({
@@ -9,7 +11,10 @@ const Createbook = () => {
     isAvailble: false,
   });
 
-  console.log(formData.isAvailble);
+  const {setTitle} = useContext(StoreContext)
+  setTitle("Add a book")
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
     axios

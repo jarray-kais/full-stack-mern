@@ -1,15 +1,17 @@
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
-import App from './App.jsx';
-import { BrowserRouter } from 'react-router-dom';
+import { createContext, StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import App from "./App.jsx";
+import { BrowserRouter } from "react-router-dom";
+import { StoreProvider } from "./StoreContext.jsx";
 
-createRoot(document.getElementById('root')).render(
-  
-   <StrictMode>
-    <BrowserRouter>
-    <App /> 
-    </BrowserRouter>
+const store = createContext()
+
+createRoot(document.getElementById("root")).render(
+  <StrictMode>
+    <StoreProvider value={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </StoreProvider>
   </StrictMode>
- 
-  
-)
+);

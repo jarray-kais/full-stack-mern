@@ -1,6 +1,9 @@
+import { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { StoreContext } from '../StoreContext'
 const Header = () => {
-    const title = 'Book Catalog'
+  const {title} = useContext(StoreContext)
+  
   return (
     
     <>

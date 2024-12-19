@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { StoreContext } from "../StoreContext";
 
 const Home = () => {
   const [book, setBook] = useState([]);
   const navigate = useNavigate();
+    const {setTitle} = useContext(StoreContext)
+    setTitle("Book Catalog")
 
   useEffect(() => {
     axios
