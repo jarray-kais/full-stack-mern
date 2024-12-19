@@ -1,0 +1,383 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Oxygen", sans-serif;
+}
+main {
+  width: 1500px;
+  margin : 100px auto;
+ 
+ 
+}
+
+button {
+  background: none;
+  box-shadow: none;
+  border: none;
+  cursor: pointer;
+}
+
+button:focus,
+input:focus {
+  outline: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  line-height: 1.5em;
+  padding: 0;
+  margin: 0;
+}
+
+section {
+  height: 100vh;
+}
+
+#home {
+  background-color: #ddd;
+}
+
+#about {
+  background-color: #aaa;
+}
+
+
+.skew {
+  transform: skew(-20deg);
+}
+
+.un-skew {
+  transform: skew(20deg);
+}
+
+/*-------------Nav-------------*/
+#nav-wrapper {
+  overflow: hidden;
+  width: 100%;
+  margin: 0 auto;
+ 
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+#nav {
+  background-color: #fff;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  font-family: "Saira Semi Condensed", sans-serif;
+  height: 4em;
+  overflow: hidden;
+}
+#nav.nav-visible {
+  height: 100%;
+  overflow: auto;
+}
+
+.nav {
+  display: flex;
+  height: 4em;
+  line-height: 4em;
+  flex-grow: 1;
+}
+
+.nav-link,
+.logo {
+  padding: 0 1em;
+}
+
+span.gradient {
+  background: #f857a8;
+  background: -webkit-linear-gradient(45deg, #f857a8, #ff5858);
+  background: linear-gradient(45deg, #f857a8, #ff5858);
+  padding: 0 1em;
+  position: relative;
+  right: 1em;
+  margin-right: auto;
+}
+span.gradient:hover {
+  animation-name: logo-hover;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.17, 0.57, 0.31, 0.85);
+}
+
+h1.logo {
+  font-weight: 300;
+  font-size: 1.75em;
+  line-height: 0.75em;
+  color: #fff;
+}
+
+h1.logo a, a:active, a:hover, a:visited {
+  text-decoration: none;
+  color: #fff;
+}
+
+.nav-link {
+  text-transform: uppercase;
+  text-align: center;
+  border-top: 0.5px solid #ddd;
+}
+
+a:link, a:visited, a:active {
+  text-decoration: none;
+  color: #f857a8;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.btn-nav {
+  color: #f857a8;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+@media (min-width: 800px) {
+  #nav-wrapper {
+    overflow: hidden;
+  }
+
+  #nav {
+    overflow: hidden;
+    flex-direction: row;
+  }
+
+  .nav-link {
+    border-top: none;
+  }
+
+  .right {
+    overflow: hidden;
+    flex-direction: row;
+    justify-content: flex-end;
+    position: relative;
+    left: 1.5em;
+    height: auto;
+  }
+
+  .btn-nav {
+    display: none;
+  }
+
+  .nav a:link.active, a:visited.active, a:active.active {
+    background: #f857a8;
+    background: -webkit-linear-gradient(45deg, #f857a8, #ff5858);
+    background: linear-gradient(45deg, #f857a8, #ff5858);
+    color: #fff;
+  }
+
+  .nav-link-span {
+    transform: skew(20deg);
+    display: inline-block;
+  }
+
+  .nav-link {
+    transform: skew(-20deg);
+    color: #777;
+    text-decoration: none;
+  }
+  .nav-link:last-child {
+    padding-right: 3em;
+  }
+
+  a:hover.nav-link:not(.active) {
+    color: #444;
+    background: #ddd;
+    background: linear-gradient(45deg, #fff, #ddd);
+  }
+}
+@keyframes logo-hover {
+  20% {
+    padding-right: 0em;
+  }
+  100% {
+    padding-right: 5em;
+  }
+}
+
+.tableList {
+  width: 100%;
+  border-collapse: collapse;
+  font-weight: bold;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+}
+
+.tableList thead {
+  background-color: #f5f5f5;
+}
+
+.tableList th,
+.tableList td {
+  padding: 15px;
+  text-align: center;
+  border-bottom: 1px solid #dddddd;
+}
+.tableList th {
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #888888;
+}
+
+.tableList tbody tr:hover {
+  background-color:#f1f1f1 ;
+}
+.btn {
+  background-color:  #f857a8;
+  color: #fff;
+  border-radius: 10rem;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  overflow: hidden;
+  position: relative;
+  transition: transform 450ms, background-color 300ms 150ms;
+}
+.btn:hover {
+  transform: scale(1.13);
+  background-color: #f857a8;
+ 
+}
+
+form {
+  background-color: #fff;
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  width: 100%;
+  margin: auto;
+}
+
+form div {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+
+
+input[type="submit"] {
+  background-color: #f857a8;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #f857a8;
+}
+
+.error {
+  color: #d9534f;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+input:focus {
+  border-color: #f857a8;
+  outline: none;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+ 
+}
+
+.checkbox-label input[type="checkbox"] {
+  display: none;
+}
+
+.custom-checkbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ff5858;
+  border-radius: 5px;
+  display: inline-block;
+  background-color: white;
+  transition: transform 400ms , background-color 400ms 150ms;
+}
+
+.checkbox-label input[type="checkbox"]:checked + .custom-checkbox {
+  background-color: #7ec7f1;
+  border-color: #ff5858;
+  transform: scale(1.1);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M20.285 5.285l-10.5 10.5-4.5-4.5 1.415-1.415 3.085 3.085 9.085-9.085z'/%3E%3C/svg%3E");
+  
+}
+.checkbox-label input[type="checkbox"]:hover + .custom-checkbox {
+  border-color: #ff5858;
+  transform: scale(1.3);
+}
+
+.book-detail-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.book-detail-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
