@@ -1,7 +1,7 @@
 import Advertisement from "./Advertisement"
 import Subcontent from "./Subcontent"
 
-const MAincontent = () => {
+const Maincontent = () => {
   return (
     <div className="main ">
         <Subcontent />
@@ -12,4 +12,4 @@ const MAincontent = () => {
   )
 }
 
-export default MAincontent
+export default Maincontent

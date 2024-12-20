@@ -1,6 +1,6 @@
 import "./App.css";
 import Header from "./componenets/Header";
-import MAincontent from "./componenets/MAincontent";
+import Maincontent from "./componenets/Maincontent";
 import Navigation from "./componenets/Navigation";
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
     <div className="app">
       <Header />
       <Navigation />
-      <MAincontent />
+      <Maincontent />
     </div>
   );
 }

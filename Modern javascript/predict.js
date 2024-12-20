@@ -7,7 +7,7 @@ console.log(randomCar); // output : 'Tesla'
 console.log(otherRandomCar); // output :'MERcedes'
 
 //Why did the code produce this output? :
-// the destruction syntax [x , y ] asssigns vaalue to x and y in order of their indices in the array .
+// the destruction syntax [x , y ] asssigns value to x and y in order of their indices in the array .
 //skipping an index with a comma (',') allows you to access a specific index without assigning variables to their earlier indices
 //How would you get the index value that did not output? ('Honda') :
 //you can use destructuring with additionnal commas or directly access the index in the array
