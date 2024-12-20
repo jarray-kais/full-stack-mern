@@ -2,6 +2,7 @@ import axios from "axios";
 import { useContext } from "react";
 import { useState } from "react";
 import { StoreContext } from "../StoreContext";
+import { useNavigate } from "react-router-dom";
 
 const Createbook = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +11,7 @@ const Createbook = () => {
     pages: 1,
     isAvailble: false,
   });
+  const navigate = useNavigate()
 
   const {setTitle} = useContext(StoreContext)
   setTitle("Add a book")
@@ -24,7 +26,16 @@ const Createbook = () => {
         pages: formData.pages,
         isAvailble: formData.isAvailble,
       })
-      .then((res) => console.log(res.data))
+      .then(() => {
+        alert("Book added successfully")
+        setFormData({
+          title: "",
+          author: "",
+          pages: 1,
+          isAvailble: false,
+        })
+        navigate('/')
+      })
 
       .catch((err) => console.log(err));
   };

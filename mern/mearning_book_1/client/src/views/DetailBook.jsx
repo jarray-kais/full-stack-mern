@@ -26,8 +26,9 @@ const DetailBook = () => {
     axios
       .delete(`http://localhost:5000/api/${id}`)
       .then(() => {
-        console.log("book deleted successfully");
-        navigate("/");
+        if(window.confirm('Are you sure you want to delete this book?')){
+          navigate(`/`);
+        }
       })
       .catch((error) => console.log(error));
   };
@@ -37,7 +38,7 @@ const DetailBook = () => {
         <h2>{detail.title}</h2>
         <p>{detail.author}</p>
         <p>Page Count : {detail.pages}</p>
-        <button onClick={() => deleteBook()} className="btn">
+        <button onClick={() => deleteBook()}  className="btn">
           Borrow
         </button>
       </div>
