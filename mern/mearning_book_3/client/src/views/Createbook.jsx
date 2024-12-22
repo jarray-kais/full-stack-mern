@@ -15,20 +15,55 @@ const Createbook = () => {
     title: "",
     author: "",
     pages: "",
+    name : "",
     general: "",
   });
-
   const navigate = useNavigate();
-
   const { setTitle } = useContext(StoreContext);
 
-  useEffect(()=>{
+  useEffect(() => {
     setTitle("Add a book");
-  },[setTitle])
+    const validateform = () => {
+      let newErrors = {};
+      //validate for title
+      newErrors.title = !formData.title
+        ? "Title is required!"
+        : formData.title.length < 2
+        ? "Title must be at least 2 characters."
+        : formData.title.length > 255
+        ? "Title must be less than 255 characters."
+        : "";
+      //validate for author
+      newErrors.author = !formData.author
+        ? "Author is required!"
+        : formData.author.length < 5
+        ? "Author must be at least 5 characters."
+        : "";
+      //validate for pages
+      newErrors.pages = !formData.pages
+        ? "A book must have some pages"
+        : formData.pages < 1
+        ? "A book must have at least 1 page"
+        : "";
+
+      return setErrors(newErrors);
+    };
+    validateform();
+  }, [setTitle, formData]);
+
+  const validate = () => {
+    return Object.values(errors).every((value) => value === "");
+  };
+
+  /*  const handlefocus = () => {
+    setFocus(true);
+  };
+  const handleblur = () => {
+    setFocus(false);
+  }; */
 
   const handleSubmit = (e) => {
     e.preventDefault();
-   
     axios
       .post(`http://localhost:5000/api/`, {
         title: formData.title,
@@ -49,23 +84,24 @@ const Createbook = () => {
 
       .catch((err) => {
         if (err.response && err.response.data) {
-          const errorResponse = err.response.data.errors;
-          console.log(errorResponse); // Get the errors from err.response.data
+          const errorName = err.response.data.name;
+          const errorResponse = err.response.data.validationErrors; // Get the errors from err.response.data
           const errorArr = {}; // Define a temp error array to push the messages in
+          // // Loop through all errors and get the messages
           for (const key of Object.keys(errorResponse)) {
-            // Loop through all errors and get the messages
-            errorArr[key] = errorResponse[key].message; // Add the messages to the errorArr
+            errorArr[key] = errorResponse[key]; // Add the messages to the errorArr
           }
           // Set Errors
-          setErrors(errorArr);
+          setErrors({...errorArr ,name : errorName});
         } else {
           setErrors({ general: "An unexpected error occurred." });
         }
       });
   };
-
+  console.log(errors)
   return (
     <>
+    <h2 style={{textAlign : "center", color : "red"}}>{errors?.name}</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <label>Title: </label>
@@ -78,6 +114,15 @@ const Createbook = () => {
             }}
           />
           {errors.title && <p className="error">{errors.title}</p>}
+          {/* {!formData.title && focus ? (
+            <p className="error">Title is required!</p>
+          ) :formData.title.length < 2 && formData.title.length !== 0  ? (
+            <p className="error">Title must be at least 2 characters.</p>
+          ) : formData.title.length > 255 ? (
+            <p className="error">Title must be less than 255 characters.</p>
+          ) : errors.title ? (
+            <p className="error">{errors.title}</p>
+          ) : null} */}
         </div>
         <div>
           <label>Author: </label>
@@ -118,7 +163,7 @@ const Createbook = () => {
           </label>
         </div>
         {errors.general && <p className="error">{errors.general}</p>}
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Submit" disabled= {!validate()}  />
       </form>
     </>
   );

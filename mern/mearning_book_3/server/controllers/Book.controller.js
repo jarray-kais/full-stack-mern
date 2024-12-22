@@ -2,30 +2,25 @@ import Book from "../models/Book.model.js";
 
 
 const bookController = {
-    createBook : async(req , res)=>{
+    createBook : async(req , res , next)=>{
         try {
             const {title , author , pages  } = req.body;
             const isAvailble = Boolean(req.body.isAvailble);
             const newbook = await Book.create({title, author, pages , isAvailble})
             res.status(201).json(newbook);
-        } catch (error) {
-            
-            res.status(400).json(error)
-            
+        } catch (err) {
+            next(err);
         }
     },
-    getAllBooks : async(req , res)=>{
+    getAllBooks : async(req , res , next)=>{
         try {
             const book = await Book.find()
             res.status(200).json(book);
-        } catch (error) {
-            res.status(400).json(error)
-            res.status(500).json({ message: "Internal Server Error" });
-            
-            
+        } catch (err) {
+            next(err);
         }
     },
-    getBookById : async(req, res)=>{
+    getBookById : async(req, res , next)=>{
         try {
             const book = await Book.findById(req.params.id)
             
@@ -33,13 +28,11 @@ const bookController = {
                 return res.status(404).json({ message: "Book not found" });
             }
             res.status(200).json(book);
-        } catch (error) {
-            res.status(400).json(error)
-            res.status(500).json({ message: "Internal Server Error" });
-            
+        } catch (err) {
+            next(err);
         }
     },
-    updateBook : async(req, res)=>{
+    updateBook : async(req, res , next)=>{
         const options ={
             new: true,
             runValidators: true
@@ -50,23 +43,20 @@ const bookController = {
                 return res.status(404).json({ message: "Book not found" });
             }
             res.status(200).json(book);
-        } catch (error) {
-            res.status(400).json(error)
-            res.status(500).json({ message: "error in updating book " });
+        }catch (err) {
+            next(err);
         }
     }
     ,
-    deleteBook : async(req, res)=>{
+    deleteBook : async(req, res , next)=>{
         try {
             const book = await Book.findByIdAndDelete(req.params.id)
             if(!book) {
                 return res.status(404).json({ message: "Book not found" });
             }
             res.status(200).json({ message: "Book deleted successfully" });
-        } catch (error) {
-            res.status(400).json(error)
-            res.status(500).json({ message: "error in deleting book " });
-            
+        } catch (err) {
+            next(err);
         }
     }
 
