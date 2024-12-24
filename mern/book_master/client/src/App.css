@@ -145,7 +145,7 @@ a:hover {
   padding-right: 2em;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 450px) {
   #nav-wrapper {
     overflow: hidden;
   }

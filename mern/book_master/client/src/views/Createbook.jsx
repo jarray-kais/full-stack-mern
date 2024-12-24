@@ -3,6 +3,8 @@ import { useContext, useEffect } from "react";
 import { useState } from "react";
 import { StoreContext } from "../StoreContext";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
+import apiurls from "../URL/url";
 
 const Createbook = () => {
   const [formData, setFormData] = useState({
@@ -20,6 +22,7 @@ const Createbook = () => {
   });
   const navigate = useNavigate();
   const { setTitle } = useContext(StoreContext);
+ 
 
   useEffect(() => {
     setTitle("Add a book");
@@ -63,9 +66,10 @@ const Createbook = () => {
   }; */
 
   const handleSubmit = (e) => {
+
     e.preventDefault();
     axios
-      .post(`http://localhost:5000/api/`, {
+      .post(apiurls.Allbooks, {
         title: formData.title,
         author: formData.author,
         pages: formData.pages,
@@ -101,6 +105,9 @@ const Createbook = () => {
   console.log(errors)
   return (
     <>
+    <Helmet>
+      <title>Add a book</title>
+    </Helmet>
     <h2 style={{textAlign : "center", color : "red"}}>{errors?.name}</h2>
       <form onSubmit={handleSubmit}>
         <div>

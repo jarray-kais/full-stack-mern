@@ -2,29 +2,43 @@ import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { StoreContext } from "../StoreContext";
+import { Helmet } from "react-helmet-async";
+import LoadingSpinner from "../components/LoadingSpinner";
+import apiurls from "../URL/url";
 
 const Home = () => {
   const [book, setBook] = useState([]);
+  const [loading , setLoading] = useState(false);
   const navigate = useNavigate();
     const {setTitle} = useContext(StoreContext)
-    
-
+    console.log(import.meta.env.API_URL)
   useEffect(() => {
+    setLoading(true);
     axios
-      .get(`http://localhost:5000/api/`)
+      .get(apiurls.Allbooks)
       .then((res) => {
         setBook(res.data);
         setTitle("Book Catalog")
+        setLoading(false);
       })
       .catch((err) => console.log(err));
+      setLoading(false);
   }, [setBook,setTitle]);
 
   const DetailHandlers = (id) => {
-   navigate(`/books/${id}`)
+   navigate(`/${id}/detail`)
   };
 
   return (
-    <div className="container">
+    <>
+    <Helmet>
+      
+      <title>Home - My App</title>
+    </Helmet>
+    {
+      loading ? (<LoadingSpinner />) :(
+        <>
+        <div className="container">
       <table className="tableList">
         <thead>
           <tr>
@@ -50,6 +64,12 @@ const Home = () => {
         </tbody>
       </table>
     </div>
+        </>
+      )
+    }
+    
+    </>
+    
   );
 };
 
