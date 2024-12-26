@@ -2,9 +2,9 @@ import styles from "../styles/loadingspinner.module.css"
 const LoadingSpinner = () => {
   return (
     <>
-      <div className={styles.container}>
+    <div className={styles.container}>
     <div className={styles.spinner}></div>
-  </div>
+    </div>
     </>
   
   )

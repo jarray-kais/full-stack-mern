@@ -22,7 +22,6 @@ const tab = [
     <>
     <h1>Tabs component</h1>
     <TabsComponent item = {tab}/>
-
     </>
   );
 }

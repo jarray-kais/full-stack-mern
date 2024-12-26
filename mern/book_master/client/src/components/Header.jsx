@@ -5,7 +5,6 @@ const Header = () => {
   const {title} = useContext(StoreContext)
   
   return (
-    
     <>
     <header id="nav-wrapper">
     <nav id="nav">

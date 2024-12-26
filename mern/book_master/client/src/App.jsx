@@ -13,7 +13,7 @@ const DetailBook = React.lazy(() => import("./views/DetailBook"));
 const Header = React.lazy(() => import("./components/Header"));
 const Createbook = React.lazy(() => import("./views/CreateBook"));
 const UpdateBook = React.lazy(() => import("./views/UpdateBook"));
-const NotFound = React.lazy(() => import("./components/NotFound"));
+const NotFound = React.lazy(() => import("./views/NotFound"));
 
 
 

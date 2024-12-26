@@ -55,7 +55,6 @@ function App() {
       payload : index
     })
   }
-  console.log(box)
 
 
   return (

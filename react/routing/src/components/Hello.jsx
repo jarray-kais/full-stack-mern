@@ -1,10 +1,13 @@
 import { useParams } from "react-router-dom"
 
 const Hello = () => {
-    const params =useParams()
-    console.log(params)
+    const p = useParams()
+   console.log(p)
   return (
-    <div style={{backgroundColor : `${params.color2}` , color :`${params.color1}` }}> The word is : hello</div>
+    <>
+    <h2 style={{backgroundColor : `${p.color2}` , color :`${p.color1}` }}> The word is : hello</h2>
+    </>
+    
   )
 }
 

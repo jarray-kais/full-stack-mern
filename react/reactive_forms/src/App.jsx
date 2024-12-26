@@ -4,7 +4,6 @@ import "./App.css";
 function App() {
   const [title, setTitle] = useState("Welcome. Please submit the form");
   const [isactive, setIsActive] = useState(false);
-
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",

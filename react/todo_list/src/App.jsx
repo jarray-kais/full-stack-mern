@@ -7,6 +7,7 @@ function App() {
 
   const handleAdd = () => {
     setBox((box) => [...box, { input: input, ischecked: false }]);
+    setInput("")
   };
   const handleCheckbox = (index) => {
     setBox((prevBox) =>
