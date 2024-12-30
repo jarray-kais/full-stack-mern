@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+.img {
+    width: 472px;
+    height: 500px;
+}
+.container_error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+}
+.body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    font-family: Public Sans, sans-serif;
+    font-size: 32px;
+    color: #191C1F;
+    font-weight: bold;
+    line-height: 40px;
+    margin-bottom: 20px;
+
+}
+.parag {
+    text-align: center;
+    width: 30rem;
+    font-family: Public Sans, sans-serif;
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 10px;
+}
+.group_btn {
+    display: flex;
+    gap: 20px;
+}
+.btn {
+    background-color:  #f857a8;
+    color: #fff;
+    border-radius: 10rem;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 1rem 2rem;
+    overflow: hidden;
+    position: relative;
+    transition: transform 450ms, background-color 300ms 150ms;
+  }
+  .btn:hover {
+    transform: scale(1.13);
+    background-color: #f857a8;
+   text-decoration: none;
+  }
+  .btn a {
+    color: #fff;
+  }
+

@@ -7,12 +7,12 @@ const initialiseState ={
 }
 const reducer =(state , action)=>{
   switch(action.type){
-    case 'ADD_ITME':
+    case 'ADD_ITEM':
       return {
         ...state,
         box : [...state.box , action.payload]
       }
-      case 'REMOVE_ITME':
+      case 'REMOVE_ITEM':
         return {
          ...state,
           box : state.box.filter((_, i) => i !== action.payload)
@@ -37,7 +37,7 @@ function App() {
     dispatch({
       type : 'ADD_ITEM',
       payload : {
-        input : state.input,
+        input : input,
         isChecked : false,
       }
     })
@@ -55,6 +55,8 @@ function App() {
       payload : index
     })
   }
+  console.log(box)
+  console.log(input)
 
 
   return (
