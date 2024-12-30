@@ -36,18 +36,23 @@ class User {
     constructor(name , email) {
         this.name = name ,
         this.email = email ,
-        this.account= new BankAccount(0.02 , 0) 
+        this.account= []
     }
-    makeDeposit(amount) {
-        this.account.deposit(amount);
+    createAccount(intRate = 0.02 , balance = 0) {
+        const newAccount = new BankAccount(intRate , balance)
+        this.account.push(newAccount)
+        return this;
+    }
+    makeDeposit(index , amount) {
+        this.account[index].deposit(amount);
         return this  
     }
-    makeWithdrawal(amount) {
-        this.account.withdraw(amount); 
+    makeWithdrawal(index , amount) {
+        this.account[(index, amount)].withdraw(amount); 
         return this
     }
-    displayUserBalance() {
-        console.log(`USer : ${this.name} , Balance ${this.account.balance}`)
+    displayUserBalance(index) {
+        console.log(`USer : ${this.name}, Account: ${index + 1}  , Balance $ ${this.account[index].balance}`)
         return this
     }
     transferMoney(otherUser , amount) {
@@ -62,4 +67,22 @@ class User {
         return this;
     }
 }
+
+
+// Create users
+const user1 = new User("Alice", "alice@example.com");
+const user2 = new User("Bob", "bob@example.com");
+
+// Create multiple accounts for each user
+user1.createAccount(0.02, 100).createAccount(0.03, 200);
+user2.createAccount(0.01, 150);
+
+// Deposit money into different accounts
+user1.makeDeposit(0, 50).makeDeposit(1, 100);
+user2.makeDeposit(0, 50);
+
+// Display balances for specific accounts
+user1.displayUserBalance(0); // Account 1 of Alice
+user1.displayUserBalance(1); // Account 2 of Alice
+user2.displayUserBalance(0); // Account 1 of Bob
 
