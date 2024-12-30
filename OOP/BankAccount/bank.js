@@ -14,8 +14,10 @@ class BankAccount {
             console.log("Insufficient funds");
             this.balance -= 5;
             return this;
+        }else {
+            this.balance -= amount;
         }
-        this.balance -= amount;
+        
         return this;
     }
     displayAccountInfo(){
